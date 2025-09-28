@@ -1,0 +1,100 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  /* Professional Finance Theme - Wall Street meets Crypto */
+  --color-bg: hsl(220, 30%, 8%);
+  --color-fg: hsl(0, 0%, 95%);
+  --color-accent: hsl(51, 100%, 50%); /* Gold */
+  --color-primary: hsl(220, 90%, 50%);
+  --color-surface: hsl(220, 25%, 12%);
+  --color-text-primary: hsl(0, 0%, 95%);
+  --color-text-secondary: hsl(0, 0%, 70%);
+}
+
+[data-theme="celo"] {
+  --color-bg: hsl(0, 0%, 0%);
+  --color-fg: hsl(0, 0%, 100%);
+  --color-accent: hsl(48, 96%, 67%);
+  --color-primary: hsl(48, 96%, 67%);
+  --color-surface: hsl(0, 0%, 5%);
+  --color-text-primary: hsl(0, 0%, 100%);
+  --color-text-secondary: hsl(0, 0%, 70%);
+}
+
+[data-theme="solana"] {
+  --color-bg: hsl(260, 30%, 8%);
+  --color-fg: hsl(0, 0%, 95%);
+  --color-accent: hsl(290, 70%, 60%);
+  --color-primary: hsl(260, 90%, 50%);
+  --color-surface: hsl(260, 25%, 12%);
+  --color-text-primary: hsl(0, 0%, 95%);
+  --color-text-secondary: hsl(0, 0%, 70%);
+}
+
+[data-theme="base"] {
+  --color-bg: hsl(220, 30%, 8%);
+  --color-fg: hsl(0, 0%, 95%);
+  --color-accent: hsl(220, 100%, 50%);
+  --color-primary: hsl(220, 100%, 50%);
+  --color-surface: hsl(220, 25%, 12%);
+  --color-text-primary: hsl(0, 0%, 95%);
+  --color-text-secondary: hsl(0, 0%, 70%);
+}
+
+[data-theme="coinbase"] {
+  --color-bg: hsl(220, 40%, 6%);
+  --color-fg: hsl(0, 0%, 95%);
+  --color-accent: hsl(220, 100%, 50%);
+  --color-primary: hsl(220, 100%, 50%);
+  --color-surface: hsl(220, 35%, 10%);
+  --color-text-primary: hsl(0, 0%, 95%);
+  --color-text-secondary: hsl(0, 0%, 70%);
+}
+
+@layer base {
+  * {
+    @apply border-gray-700;
+  }
+  
+  body {
+    @apply bg-bg text-fg font-sans antialiased;
+    font-feature-settings: "rlig" 1, "calt" 1;
+  }
+}
+
+@layer components {
+  .glass-card {
+    @apply bg-surface border border-gray-700 backdrop-blur-sm;
+    background: rgba(var(--color-surface), 0.8);
+  }
+  
+  .btn-primary {
+    @apply bg-gradient-to-r from-accent to-yellow-500 text-black px-6 py-3 rounded-lg font-medium hover:from-yellow-400 hover:to-accent transition-all duration-200 shadow-lg hover:shadow-xl;
+  }
+  
+  .btn-secondary {
+    @apply bg-surface border border-gray-600 text-fg px-6 py-3 rounded-lg font-medium hover:bg-gray-700 transition-all duration-200;
+  }
+  
+  .metric-card {
+    @apply glass-card p-4 hover:bg-opacity-15 transition-all duration-200;
+  }
+  
+  .node-marker {
+    @apply w-4 h-4 bg-accent rounded-full border-2 border-white shadow-lg animate-pulse-slow;
+  }
+  
+  .health-excellent {
+    @apply text-green-400;
+  }
+  
+  .health-good {
+    @apply text-yellow-400;
+  }
+  
+  .health-poor {
+    @apply text-red-400;
+  }
+}
